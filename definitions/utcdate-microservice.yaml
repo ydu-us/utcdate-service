@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: utcdate-service
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -15,14 +15,3 @@ spec:
         ports:
         - containerPort: 3001
 
-apiVersion: v1
-kind: Service
-metadata: 
-   name: utcdata-service
-spec:
-   ports:
-   - port: 80
-     targetPort: 8080
-   selector:
-     app: aggregator-service
-   type: NodePort
